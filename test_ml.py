@@ -65,6 +65,12 @@ def census_data():
     data_path = os.path.join(".", "data", "census.csv")
     return pd.read_csv(data_path)
 
+# Added to tell Pytest to skip this test in the CI environment
+@pytest.mark.skipif(
+    not os.path.isfile(os.path.join(".", "data", "census.csv")), 
+    reason="Data file not available in CI environment because it is tracked by DVC."
+)
+
 def test_data_no_null_categorical_values(census_data):
     """
     Test 4: Checks if the data meets expectations by validating that required 
