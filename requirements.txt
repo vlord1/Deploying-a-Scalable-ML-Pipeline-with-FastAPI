@@ -117,3 +117,4 @@ voluptuous==0.16.0
 wcwidth==0.8.2
 yarl==1.24.2
 zc.lockfile==4.0
+flake8==7.1.0
